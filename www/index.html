@@ -6,24 +6,19 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
     <link rel="stylesheet" href="css/style.css">
     <script>
+   var nomesArray = ['João Paulo', 'Nathan', 'Messias', 'Bauermann', 'Felipe Jonatan','Fernández', 'Dodi', 'Daniel Ruiz', 'Lucas Limas' , 'Soteldo', 'Marcos Leonardo' ];
 
-    var nome = '';
-    var nomesArray = [ ];
-
-    function insertName() {
-     nome = document.getElementById('name').value
-     nomesArray.push(nome);
-
-     alert(nomesArray);
-    }
-
+   document.getElementById('content').innerHTML = `<li> ${nomesArray[0]} </li>`
+    
     </script>
 </head>
 <body>
 	<br />
     <form>
     <input type="text" placeholder="Digite aqui!" id="name"> <br>
-    <input type="submit" value="Enviar" onclick="insertName()">
+    <input type="submit" value="Enviar" onclick="gerar()">
+    <br>
+    <ul id='content'></ul>
     </form>
 </body>
 </html>
