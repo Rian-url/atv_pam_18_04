@@ -6,19 +6,45 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
     <link rel="stylesheet" href="css/style.css">
     <script>
-   var nomesArray = ['João Paulo', 'Nathan', 'Messias', 'Bauermann', 'Felipe Jonatan','Fernández', 'Dodi', 'Daniel Ruiz', 'Lucas Limas' , 'Soteldo', 'Marcos Leonardo' ];
 
-   document.getElementById('content').innerHTML = `<li> ${nomesArray[0]} </li>`
+       function gerar(){
+        var nomesArray = ['João Paulo', 'Nathan', 'Messias', 'Bauermann', 'Felipe Jonatan','Fernández', 'Dodi', 'Daniel Ruiz', 'Lucas Limas' , 'Soteldo', 'Marcos Leonardo' ];
+        let lista = document.getElementById('content-list');
+
+        for( i = 0; i < nomesArray.length; i++){
+            let item = document.createElement('li');
+        
+            item.appendChild(document.createTextNode(i));
+            item.appendChild(document.createTextNode(' '));
+            item.appendChild(document.createTextNode(nomesArray[i]));
+            lista.appendChild(item);
+        }
+
+    }
+        
+        function buscarJogador() { 
+            var nomesArray = ['João Paulo', 'Nathan', 'Messias', 'Bauermann', 'Felipe Jonatan','Fernández', 'Dodi', 'Daniel Ruiz', 'Lucas Limas' , 'Soteldo', 'Marcos Leonardo' ];
+
+            var vetor = document.getElementById('numVetor').value;
+         
+            if ((vetor >= 0, vetor <= 10)) { 
+             alert(nomesArray[vetor])
+            } else {
+                alert('Posição não encontrada')
+            }
+        }
+    
     
     </script>
 </head>
 <body>
 	<br />
     <form>
-    <input type="text" placeholder="Digite aqui!" id="name"> <br>
-    <input type="submit" value="Enviar" onclick="gerar()">
-    <br>
-    <ul id='content'></ul>
+     <input type="text" id="numVetor" > <input type="submit" value="Checar jogador" onclick="buscarJogador()">
+     <br>
+     <input type="button" value="Escalação completa" onclick="gerar()">
     </form>
+
+    <ul id='content-list'></ul>
 </body>
 </html>
